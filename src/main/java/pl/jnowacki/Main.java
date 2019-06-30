@@ -2,19 +2,20 @@ package pl.jnowacki;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.HashSet;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
 
 public class Main {
+
     public static void main(String[] args) throws FileNotFoundException {
 
-        Set<String> words = readFile();
+        List<String> words = readFile();
+
+        System.out.println(getRandom(0, words.size() - 1));
     }
 
-    private static Set<String> readFile() throws FileNotFoundException {
+    private static List<String> readFile() throws FileNotFoundException {
 
-        Set<String> words = new HashSet<>();
+        List<String> words = new ArrayList<>();
 
         File file = new File("words.txt");
         Scanner in = new Scanner(file);
@@ -24,5 +25,10 @@ public class Main {
         }
 
         return words;
+    }
+
+    private static int getRandom(int start, int end) {
+        Random rand = new Random();
+        return rand.nextInt((end - start) + 1) + start;
     }
 }
