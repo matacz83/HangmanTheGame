@@ -9,19 +9,23 @@ public class Main {
     private static List<String> words;
 
     public static void main(String[] args) throws FileNotFoundException {
+
         initWords();
-
         String word = getNextWord();
-
         Set<String> guessedLetters = new HashSet<>();
 
-        guessedLetters.add("A");
-        guessedLetters.add("s");
-        guessedLetters.add("y");
-        guessedLetters.add("e");
-        guessedLetters.add("b");
+        Scanner in = new Scanner(System.in);
 
+        String inputLetter;
+
+        System.out.println("Witaj! Wpisz kolejną literkę lub 'end', aby zakończyć");
         printWord(word, guessedLetters);
+
+        while (!(inputLetter = in.nextLine()).equals("end")) {
+            guessedLetters.add(inputLetter);
+            printWord(word, guessedLetters);
+        }
+
     }
 
     private static void initWords() throws FileNotFoundException {
@@ -31,6 +35,7 @@ public class Main {
     private static void printWord(String word, Set<String> guessedLetters) {
 
         System.out.println(word);
+        System.out.println(guessedLetters);
 
         for (int i = 0; i < word.length(); i++) {
 
@@ -45,6 +50,7 @@ public class Main {
 
             System.out.print(" ");
         }
+        System.out.println();
     }
 
     private static List<String> readFile() throws FileNotFoundException {
