@@ -22,7 +22,7 @@ public class Main {
         System.out.println("Witaj! Wpisz kolejną literkę lub 'end', aby zakończyć");
         printWord(word, guessedLetters);
 
-        while (!(inputLetter = in.nextLine()).equals("end")) {
+        while (errorCounter < 6 && !(inputLetter = in.nextLine()).equals("end")) {
 
             if (!word.toLowerCase().contains(inputLetter.toLowerCase())) {
                 errorCounter++;
@@ -32,8 +32,11 @@ public class Main {
             printWord(word, guessedLetters);
 
             System.out.println("Errors: " + errorCounter);
-        }
 
+            if(errorCounter > 5) {
+                System.out.println("GAME OVER");
+            }
+        }
     }
 
     private static void initWords() throws FileNotFoundException {
