@@ -13,17 +13,35 @@ public class Main {
 
         String word = getNextWord();
 
-        printWord(word);
+        Set<String> guessedLetters = new HashSet<>();
+
+        guessedLetters.add("A");
+        guessedLetters.add("s");
+        guessedLetters.add("y");
+        guessedLetters.add("e");
+        guessedLetters.add("b");
+
+        printWord(word, guessedLetters);
     }
 
     private static void initWords() throws FileNotFoundException {
         words = readFile();
     }
 
-    private static void printWord(String word) {
+    private static void printWord(String word, Set<String> guessedLetters) {
+
         System.out.println(word);
-        for(int i = 0; i < word.length(); i++) {
-            System.out.print("_" + " ");
+
+        for (int i = 0; i < word.length(); i++) {
+
+            String letter = word.substring(i, i + 1);
+
+            if (guessedLetters.contains(letter)) {
+                System.out.print(letter);
+            } else {
+                System.out.print("_");
+            }
+            System.out.print(" ");
         }
     }
 
