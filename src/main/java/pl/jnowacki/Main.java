@@ -36,11 +36,13 @@ public class Main {
 
             String letter = word.substring(i, i + 1);
 
-            if (guessedLetters.contains(letter)) {
+            if (guessedLetters.contains(letter.toLowerCase()) ||
+                    guessedLetters.contains(letter.toUpperCase())) {
                 System.out.print(letter);
             } else {
                 System.out.print("_");
             }
+
             System.out.print(" ");
         }
     }
