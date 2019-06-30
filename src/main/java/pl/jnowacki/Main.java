@@ -6,11 +6,25 @@ import java.util.*;
 
 public class Main {
 
+    private static List<String> words;
+
     public static void main(String[] args) throws FileNotFoundException {
+        initWords();
 
-        List<String> words = readFile();
+        String word = getNextWord();
 
-        System.out.println(getRandom(0, words.size() - 1));
+        printWord(word);
+    }
+
+    private static void initWords() throws FileNotFoundException {
+        words = readFile();
+    }
+
+    private static void printWord(String word) {
+        System.out.println(word);
+        for(int i = 0; i < word.length(); i++) {
+            System.out.print("_" + " ");
+        }
     }
 
     private static List<String> readFile() throws FileNotFoundException {
@@ -29,6 +43,11 @@ public class Main {
 
     private static int getRandom(int start, int end) {
         Random rand = new Random();
+
         return rand.nextInt((end - start) + 1) + start;
+    }
+
+    private static String getNextWord() {
+        return words.get(getRandom(0, words.size() - 1));
     }
 }
