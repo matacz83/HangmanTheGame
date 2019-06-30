@@ -13,6 +13,7 @@ public class Main {
         initWords();
         String word = getNextWord();
         Set<String> guessedLetters = new HashSet<>();
+        int errorCounter = 0;
 
         Scanner in = new Scanner(System.in);
 
@@ -22,8 +23,15 @@ public class Main {
         printWord(word, guessedLetters);
 
         while (!(inputLetter = in.nextLine()).equals("end")) {
+
+            if (!word.toLowerCase().contains(inputLetter.toLowerCase())) {
+                errorCounter++;
+            }
+
             guessedLetters.add(inputLetter);
             printWord(word, guessedLetters);
+
+            System.out.println("Errors: " + errorCounter);
         }
 
     }
