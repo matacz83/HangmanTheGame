@@ -28,15 +28,18 @@ public class Main {
                 errorCounter++;
             }
 
+            Display.drawHangman(errorCounter);
+
             guessedLetters.add(inputLetter);
             printWord(word, guessedLetters);
 
             System.out.println("Errors: " + errorCounter);
 
-            if(errorCounter > 5) {
+            if (errorCounter > 5) {
                 System.out.println("GAME OVER");
             }
         }
+
     }
 
     private static void initWords() throws FileNotFoundException {
