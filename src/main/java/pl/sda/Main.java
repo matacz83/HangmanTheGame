@@ -1,4 +1,4 @@
-package pl.jnowacki;
+package pl.sda;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -19,7 +19,7 @@ public class Main {
 
         String inputLetter;
 
-        System.out.println("Witaj! Wpisz kolejną literkę lub 'end', aby zakończyć");
+        System.out.println("Witaj! Wpisz kolejną literkę lub 'end', aby zakończyć - kategoria: piłkarz Lecha Poznań!");
         printWord(word, guessedLetters);
 
         while (errorCounter < 6 && !(inputLetter = in.nextLine()).equals("end")) {
@@ -48,7 +48,7 @@ public class Main {
 
     private static void printWord(String word, Set<String> guessedLetters) {
 
-        System.out.println(word);
+        //System.out.println(word);
         System.out.println(guessedLetters);
 
         for (int i = 0; i < word.length(); i++) {

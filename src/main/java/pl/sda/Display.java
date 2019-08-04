@@ -1,4 +1,4 @@
-package pl.jnowacki;
+package pl.sda;
 
 public class Display {
     public static void drawHangman(int errors) {
